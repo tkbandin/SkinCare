@@ -119,12 +119,11 @@ def evening_routine():
     while choice == "0":
         print("\x1bc")
         print("Evening Routine Menu: \n Choose 1 of 6 choices: ")
-        print("1. Cleanser")
-        print("2. Toner")
-        print("3. Retinol/Serums")
-        print("4. Acne treatment")
-        print("5. Moisturizer")
-        print("6. Choose 6 to go to another menu.")
+        i = 1
+        for item in ["Cleanser", "Toner", "Retinol/Serums", "Acne treatment", "Moisturizer"]:
+            print(str(i) + ". " + item)
+            i += 1
+        print(str(i) + ". Choose 6 to go to another menu.")
 
         choice = raw_input("Please make a choice: ")
 
