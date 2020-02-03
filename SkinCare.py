@@ -114,17 +114,21 @@ def second_menu():
 #     water_goal = 72
 
 
+def print_eventing_routine_menu():
+    print("\x1bc")
+    print("Evening Routine Menu: \n Choose 1 of 6 choices: ")
+    print("1. Cleanser")
+    print("2. Toner")
+    print("3. Retinol/Serums")
+    print("4. Acne treatment")
+    print("5. Moisturizer")
+    print("6. Choose 6 to go to another menu.")
+
+
 def evening_routine():
     choice = "0"
     while choice == "0":
-        print("\x1bc")
-        print("Evening Routine Menu: \n Choose 1 of 6 choices: ")
-        print("1. Cleanser")
-        print("2. Toner")
-        print("3. Retinol/Serums")
-        print("4. Acne treatment")
-        print("5. Moisturizer")
-        print("6. Choose 6 to go to another menu.")
+        print_eventing_routine_menu()
 
         choice = raw_input("Please make a choice: ")
 
