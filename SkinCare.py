@@ -54,7 +54,7 @@ def main():
             "Cleanser", "Toner", "Vitamin C", "Serums", "Acne Products",
             "Eye Cream", "Moisturizer", "SPF", "Choose 9 to go to another menu."
         ]
-        menu = InputMenu( "Main Choice: \nChoose 1 of 9 choices: ", options)
+        menu = InputMenu("Main Choice: \nChoose 1 of 9 choices: ", options)
         choice = menu.build()
 
         if choice == "9":
@@ -81,21 +81,24 @@ def main():
 
 
 def second_menu():
-    print("This is the second menu.\nChoose 1 of 3 choices: ")
+    print("This is the second menu.\nChoose 1 of 4 choices: ")
     print("What would you like to do?\n")
-
     choice = "0"
+    while choice == "0":
+        options = ["Go to Morning Routine Menu.", "Go to Water Intake Menu.", "Go to Evening Routine Menu.", "Go to Face Mask Tracker Menu."]
+        menu = InputMenu("Second Menu Options: \nChoose 1 of 4 choices.\n", options)
+        choice = menu.build()
+    # choice = "0"
 
-    while choice != "5":
-        print("\x1bc")
-        print("Second Menu Options:")
-        print("1. Go to Morning Routine Menu.")
-        print("2. Go to Water Intake Menu.")
-        print("3. Go to Evening Routine Menu")
-        print("4. Go to Face Mask Tracker")
+    # while choice != "5":
 
-        choice = raw_input("Please make a choice: ")
-
+        # print("\x1bc")
+        # print("Second Menu Options:")
+        # print("1. Go to Morning Routine Menu.")
+        # print("2. Go to Water Intake Menu.")
+        # print("3. Go to Evening Routine Menu")
+        # print("4. Go to Face Mask Tracker")
+        
         if choice == "1":
             main()
         elif choice == "2":
@@ -184,7 +187,7 @@ main()
 # night_routine(pm_routine)
 
 
-print("\nAwesome! Look at you! You're well on your way to glowing and clearer skin for the next day!\nCheck back in tomorrow to track your day!")
+print("\nAwesome! Look at you! You're well on your way to glowing and clear skin for the next day!\nCheck back in tomorrow to track your day!")
 
 end_day = raw_input("Would you like to end your day?\n")
 if end_day == "Yes":
