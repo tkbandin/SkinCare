@@ -46,7 +46,6 @@ morning_routine(am_routine)
 
 # morning routine function
 
-
 def main():
     choice = "0"
     while choice == "0":
@@ -191,7 +190,6 @@ end_day = raw_input("Would you like to end your day?\n")
 if end_day == "Yes":
     print("See you tomorrow " + name + "!")
 elif answer == "No":
-    #print("Would you like to edit anything?\n")
     go_back = raw_input("Would you like to edit anything?\n")
     if go_back == "Yes":
         second_menu()
