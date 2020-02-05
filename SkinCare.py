@@ -54,7 +54,7 @@ def main():
             "Cleanser", "Toner", "Vitamin C", "Serums", "Acne Products",
             "Eye Cream", "Moisturizer", "SPF", "Choose 9 to go to another menu."
         ]
-        menu = InputMenu("Main Choice: \nChoose 1 of 9 choices: ", options)
+        menu = InputMenu("Main Choice: \n ", options)
         choice = menu.build()
 
         if choice == "9":
@@ -81,12 +81,12 @@ def main():
 
 
 def second_menu():
-    print("This is the second menu.\nChoose 1 of 4 choices: ")
+    print("This is the second menu:\n ")
     print("What would you like to do?\n")
     choice = "0"
     while choice == "0":
         options = ["Go to Morning Routine Menu.", "Go to Water Intake Menu.", "Go to Evening Routine Menu.", "Go to Face Mask Tracker Menu."]
-        menu = InputMenu("Second Menu Options: \nChoose 1 of 4 choices.\n", options)
+        menu = InputMenu("Second Menu Options: \n", options)
         choice = menu.build()
     # choice = "0"
 
@@ -98,7 +98,7 @@ def second_menu():
         # print("2. Go to Water Intake Menu.")
         # print("3. Go to Evening Routine Menu")
         # print("4. Go to Face Mask Tracker")
-        
+
         if choice == "1":
             main()
         elif choice == "2":
@@ -165,6 +165,23 @@ def evening_routine():
 
 # def mask_tracker():
     # need to just have 2 days of these
+
+def mask_tracker():
+    print("Let's track how many face masks you have done this week. It is recommended to do a face mask twice a week!")
+    choice = "0"
+    while choice == "0":
+        options = ["One Mask", "Two Masks"]
+        menu = InputMenu("Masks for the Week: \n", options)
+        choice = menu.build()
+
+        if choice == "2":
+            print("You have completed the recommended number of face masks a week!")
+        elif choice == "1":
+            print("Awesome! You just need to do one more face mask this week.")
+        else:
+            print("I don't understand your choice. Please select a number 1 through 2.")
+
+    raw_input("Press enter to continue.")
 
 
 main()
