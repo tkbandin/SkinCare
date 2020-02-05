@@ -16,8 +16,12 @@ class InputMenu:
         for option in self.options:
             i += 1
             print("{}. {}".format(i, option))
-        result = raw_input("Select an option 1-{}: ".format(i))
-        return result
+        while True:
+            result = raw_input("Select an option 1-{}: ".format(i))
+            if int(result) >= 1 and int(result) <= i:
+                return result
+            else:
+                print("Invalid input. Please enter a number 1-{}.".format(i))
     
 
 
