@@ -90,7 +90,7 @@ def second_menu():
 
     choice = "0"
 
-    while choice == "0":
+    while choice != "5":
         print("\x1bc")
         print("Second Menu Options:")
         print("1. Go to Morning Routine Menu.")
@@ -115,7 +115,7 @@ def water_intake():
     print("Let's log your water intake for the day!")
     water_goal = 72
 
-    water_intake = raw_input("Enter the amount of water (in ounces) you have had today.")
+    water_intake = raw_input("Enter the amount of water (in ounces) you have had today.\n")
     #after this line does it need to be an "if statement"?? to make it work?
 
     print("You have had {} ounces of water today.".format(water_intake))
@@ -126,6 +126,9 @@ def water_intake():
          print("Congratulations! You've hit your water goal for the day! Keep it going!")
     else:
         print("Remember to hit at least 72 ounces of water a day! You got this!")
+        
+    raw_input("Press enter to continue.")
+
 
 
 def print_eventing_routine_menu():
