@@ -88,16 +88,6 @@ def second_menu():
         options = ["Go to Morning Routine Menu.", "Go to Water Intake Menu.", "Go to Evening Routine Menu.", "Go to Face Mask Tracker Menu."]
         menu = InputMenu("Second Menu Options: \n", options)
         choice = menu.build()
-    # choice = "0"
-
-    # while choice != "5":
-
-        # print("\x1bc")
-        # print("Second Menu Options:")
-        # print("1. Go to Morning Routine Menu.")
-        # print("2. Go to Water Intake Menu.")
-        # print("3. Go to Evening Routine Menu")
-        # print("4. Go to Face Mask Tracker")
 
         if choice == "1":
             main()
@@ -112,18 +102,16 @@ def second_menu():
 
 
 def water_intake():
-    print("Let's log your water intake for the day!")
+    print("Water is an important part of your skin health. Let's log your water intake for the day!")
     water_goal = 72
 
     water_intake = raw_input(
         "Enter the amount of water (in ounces) you have had today.\n")
-    # after this line does it need to be an "if statement"?? to make it work?
 
     print("You have had {} ounces of water today.".format(water_intake))
     total_water_intake = int(water_intake)
 
     if total_water_intake >= water_goal:
-        # need to make this maybe += because if it is over 72 ounces, that means they still hit their goal water intake for the day
         print("Congratulations! You've hit your water goal for the day! Keep it going!")
     else:
         print("Remember to hit at least 72 ounces of water a day! You got this!")
@@ -163,8 +151,6 @@ def evening_routine():
         else:
             print("I don't understand your choice. Please select a number 1 through 6.")
 
-# def mask_tracker():
-    # need to just have 2 days of these
 
 def mask_tracker():
     print("Let's track how many face masks you have done this week. It is recommended to do a face mask twice a week!")
@@ -185,11 +171,6 @@ def mask_tracker():
 
 
 main()
-
-# water intake
-# #print("Water is an important part of your skin health. Let's track your water intake to ensure your skin is hydrated throughout the day!")
-# water_question = raw_input("How many ounces of water have you consumed today?\n")
-# if
 
 
 # night routine
