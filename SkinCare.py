@@ -96,22 +96,36 @@ def second_menu():
         print("1. Go to Morning Routine Menu.")
         print("2. Go to Water Intake Menu.")
         print("3. Go to Evening Routine Menu")
+        print("4. Go to Face Mask Tracker")
 
         choice = raw_input("Please make a choice: ")
 
         if choice == "1":
             main()
         elif choice == "2":
-            # water_intake()
-            pass
+            water_intake()
         elif choice == "3":
             evening_routine()
+        elif choice == "4":
+            mask_tracker()
         else:
             print("I don't understand your choice. Please select a number 1 through 3.")
 
-# def water_intake():
-#     print("Let's log your water intake for the day!")
-#     water_goal = 72
+def water_intake():
+    print("Let's log your water intake for the day!")
+    water_goal = 72
+
+    water_intake = raw_input("Enter the amount of water (in ounces) you have had today.")
+    #after this line does it need to be an "if statement"?? to make it work?
+
+    print("You have had {} ounces of water today.".format(water_intake))
+    total_water_intake = int(water_intake)
+
+    if total_water_intake >= water_goal:
+        #need to make this maybe += because if it is over 72 ounces, that means they still hit their goal water intake for the day
+         print("Congratulations! You've hit your water goal for the day! Keep it going!")
+    else:
+        print("Remember to hit at least 72 ounces of water a day! You got this!")
 
 
 def print_eventing_routine_menu():
@@ -145,6 +159,9 @@ def evening_routine():
             second_menu()
         else:
             print("I don't understand your choice. Please select a number 1 through 6.")
+
+#def mask_tracker():
+    #need to just have 2 days of these
 
 
 main()
