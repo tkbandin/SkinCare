@@ -1,3 +1,6 @@
+from InputMenu import InputMenu
+
+
 name = raw_input("Good morning! What is your name?\n")
 
 print("Welcome to SkinCare 101 " + name +
@@ -47,19 +50,12 @@ morning_routine(am_routine)
 def main():
     choice = "0"
     while choice == "0":
-        print("\x1bc")
-        print("Main Choice: \nChoose 1 of 9 choices: ")
-        print("1. Cleanser")
-        print("2. Toner")
-        print("3. Vitamin C")
-        print("4. Serums")
-        print("5. Acne Products")
-        print("6. Eye cream")
-        print("7. Moisturizer")
-        print("8. SPF")
-        print("9. Choose 9 to go to another menu. ")
-
-        choice = raw_input("Please make a choice: ")
+        options = [
+            "Cleanser", "Toner", "Vitamin C", "Serums", "Acne Products",
+            "Eye Cream", "Moisturizer", "SPF", "Choose 9 to go to another menu."
+        ]
+        menu = InputMenu( "Main Choice: \nChoose 1 of 9 choices: ", options)
+        choice = menu.build()
 
         if choice == "9":
             print("Go to another menu.")
@@ -111,24 +107,25 @@ def second_menu():
         else:
             print("I don't understand your choice. Please select a number 1 through 3.")
 
+
 def water_intake():
     print("Let's log your water intake for the day!")
     water_goal = 72
 
-    water_intake = raw_input("Enter the amount of water (in ounces) you have had today.\n")
-    #after this line does it need to be an "if statement"?? to make it work?
+    water_intake = raw_input(
+        "Enter the amount of water (in ounces) you have had today.\n")
+    # after this line does it need to be an "if statement"?? to make it work?
 
     print("You have had {} ounces of water today.".format(water_intake))
     total_water_intake = int(water_intake)
 
     if total_water_intake >= water_goal:
-        #need to make this maybe += because if it is over 72 ounces, that means they still hit their goal water intake for the day
-         print("Congratulations! You've hit your water goal for the day! Keep it going!")
+        # need to make this maybe += because if it is over 72 ounces, that means they still hit their goal water intake for the day
+        print("Congratulations! You've hit your water goal for the day! Keep it going!")
     else:
         print("Remember to hit at least 72 ounces of water a day! You got this!")
-        
-    raw_input("Press enter to continue.")
 
+    raw_input("Press enter to continue.")
 
 
 def print_eventing_routine_menu():
@@ -163,8 +160,8 @@ def evening_routine():
         else:
             print("I don't understand your choice. Please select a number 1 through 6.")
 
-#def mask_tracker():
-    #need to just have 2 days of these
+# def mask_tracker():
+    # need to just have 2 days of these
 
 
 main()
