@@ -184,16 +184,16 @@ main()
 # night_routine(pm_routine)
 
 
-print("\nAwesome! Look at you! You're well on your way to glowing and clear skin for the next day!\nCheck back in tomorrow to track your day!")
+print("\nAwesome! Look at you! You're well on your way to glowing and clear skin for the next day!\n")
 
 end_day = raw_input("Would you like to end your day?\n")
-if end_day == "Yes":
-    print("See you tomorrow " + name + "!")
-elif answer == "No":
+if end_day.lower() == "yes":
+    print("See you tomorrow " + name + "! Check back in tomorrow to track your day!")
+elif end_day.lower() == "no":
     go_back = raw_input("Would you like to edit anything?\n")
-    if go_back == "Yes":
+    if go_back.lower() == "yes":
         second_menu()
-    elif answer == "No":
+    elif go_back.lower() == "no":
         print("See you tomorrow " + name + "!")
     else:
         print("Please enter yes or no.")
