@@ -84,7 +84,7 @@ def second_menu():
     print("What would you like to do?\n")
     choice = "0"
     while choice == "0":
-        options = ["Go to Morning Routine Menu.", "Go to Water Intake Menu.", "Go to Evening Routine Menu.", "Go to Face Mask Tracker Menu."]
+        options = ["Go to Morning Routine Menu.", "Go to Water Intake Menu.", "Go to Evening Routine Menu.", "Go to Face Mask Tracker Menu.", "Go to Exfoliator Tracker."]
         menu = InputMenu("Second Menu Options: \n", options)
         choice = menu.build()
 
@@ -96,6 +96,8 @@ def second_menu():
             evening_routine()
         elif choice == "4":
             mask_tracker()
+        elif choice == "5":
+            exfoliate_menu()
         else:
             print("I don't understand your choice. Please select a number 1 through 3.")
 
@@ -163,6 +165,23 @@ def mask_tracker():
             print("You have completed the recommended number of face masks a week!")
         elif choice == "1":
             print("Awesome! You just need to do one more face mask this week.")
+        else:
+            print("I don't understand your choice. Please select a number 1 through 2.")
+
+    raw_input("Press enter to continue.")
+
+def exfoliate_menu():
+    print("Let's track how many times you've exfoliated this week. It is recommended to exfoliate twice a week.")
+    choice = "0"
+    while choice == "0":
+        options = ["Once", "Twice"]
+        menu = InputMenu("Times I've exfoliated this week: \n", options)
+        choice = menu.build()
+
+        if choice == "2":
+            print("Way to go! You've completed teh recommended number of times you should exfoliate for the week.")
+        elif choice == "1":
+            print("Awesome! You just need to exfoliate one more time this week. We'd recommend waiting two more days until you exfoliate again to give your skin a rest.")
         else:
             print("I don't understand your choice. Please select a number 1 through 2.")
 
