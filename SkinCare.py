@@ -20,12 +20,32 @@ else:
     print("Please enter yes or no.")
 
 print("\x1bc")
-print("Now let's start off by tracking your morning routine!\n")
 
 
-# morning routine function
+def main_menu():
+    print("This is the Main Menu:\n ")
+    print("What would you like to do?\n")
+    choice = "0"
+    while choice == "0":
+        options = ["Go to Morning Routine Menu.", "Go to Water Intake Menu.", "Go to Evening Routine Menu.", "Go to Face Mask Tracker Menu.", "Go to Exfoliator Tracker."]
+        menu = InputMenu("Main Menu Options: \n", options)
+        choice = menu.build()
 
-def main():
+        if choice == "1":
+            morning_routine()
+        elif choice == "2":
+            water_intake()
+        elif choice == "3":
+            evening_routine()
+        elif choice == "4":
+            mask_tracker()
+        elif choice == "5":
+            exfoliate_menu()
+        else:
+            print("I don't understand your choice. Please select a number 1 through 3.")
+
+
+def morning_routine():
     choice = "0"
     while choice == "0":
         options = []
@@ -33,7 +53,7 @@ def main():
             options.append(product.name)
 
 
-        menu = InputMenu("Main Choice: \n ", options)
+        menu = InputMenu("Morning Routine: \n ", options)
 
         choice = menu.build()
 
@@ -58,29 +78,6 @@ def main():
             print("Yay! You used your Cleanser!")
         else:
             print("I don't understand your choice. Please select a number 1 through 9.")
-
-
-def second_menu():
-    print("This is the second menu:\n ")
-    print("What would you like to do?\n")
-    choice = "0"
-    while choice == "0":
-        options = ["Go to Morning Routine Menu.", "Go to Water Intake Menu.", "Go to Evening Routine Menu.", "Go to Face Mask Tracker Menu.", "Go to Exfoliator Tracker."]
-        menu = InputMenu("Second Menu Options: \n", options)
-        choice = menu.build()
-
-        if choice == "1":
-            main()
-        elif choice == "2":
-            water_intake()
-        elif choice == "3":
-            evening_routine()
-        elif choice == "4":
-            mask_tracker()
-        elif choice == "5":
-            exfoliate_menu()
-        else:
-            print("I don't understand your choice. Please select a number 1 through 3.")
 
 
 def water_intake():
@@ -112,8 +109,6 @@ def evening_routine():
 
         choice = menu.build()
 
-        choice = input("Please make a choice: ")
-
         if choice == "1":
             print("Yay! You've used your Cleanser!")
         elif choice == "2":
@@ -125,7 +120,7 @@ def evening_routine():
         elif choice == "5":
             print("Yay! You used your Moisturizer!")
         elif choice == "6":
-            second_menu()
+            main_menu()
         else:
             print("I don't understand your choice. Please select a number 1 through 6.")
 
@@ -165,7 +160,7 @@ def exfoliate_menu():
     input("Press enter to continue.")
 
 
-main()
+main_menu()
 
 
 
@@ -177,7 +172,7 @@ if end_day.lower() == "yes":
 elif end_day.lower() == "no":
     go_back = input("Would you like to edit anything?\n")
     if go_back.lower() == "yes":
-        second_menu()
+        main_menu()
     elif go_back.lower() == "no":
         print("See you tomorrow " + name + "!")
     else:
