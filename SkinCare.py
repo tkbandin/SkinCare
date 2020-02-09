@@ -29,7 +29,7 @@ def main():
     choice = "0"
     while choice == "0":
         options = []
-        for product in my_data_store.fetchProductCategories():
+        for product in my_data_store.fetchProductCategories(True):
             options.append(product.name)
 
 
@@ -100,21 +100,17 @@ def water_intake():
 
     input("Press enter to continue.")
 
-
-def print_eventing_routine_menu():
-    print("\x1bc")
-    print("Evening Routine Menu: \n Choose 1 of 6 choices: ")
-    i = 1
-    for item in ["Cleanser", "Toner", "Retinol/Serums", "Acne treatment", "Moisturizer"]:
-        print(str(i) + ". " + item)
-        i += 1
-    print(str(i) + ". Choose 6 to go to another menu.")
-
-
 def evening_routine():
     choice = "0"
     while choice == "0":
-        print_eventing_routine_menu()
+        options = []
+        for product in my_data_store.fetchProductCategories(False):
+            options.append(product.name)
+
+
+        menu = InputMenu("Evening Routine Menu: \n ", options)
+
+        choice = menu.build()
 
         choice = input("Please make a choice: ")
 

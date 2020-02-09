@@ -14,9 +14,15 @@ class DataStore:
             database="skincare"
         )
 
-    def fetchProductCategories(self):
+    def fetchProductCategories(self, is_day):
         mycursor = self.connection.cursor()
-        mycursor.execute("SELECT id, name, is_night_use, is_day_use FROM ProductCategories WHERE is_day_use = true")
+        query = "SELECT id, name, is_night_use, is_day_use FROM ProductCategories WHERE "
+        if is_day:
+            query += "is_day_use = true"
+        else:
+            query += "is_night_use = true"
+            
+        mycursor.execute(query)
         products = []
         for product_raw in mycursor.fetchall():
             product = ProductCategory(
@@ -27,4 +33,5 @@ class DataStore:
             )
             products.append(product)
         return products
+
 
