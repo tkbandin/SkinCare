@@ -1,33 +1,14 @@
 from InputMenu import InputMenu
-import mysql.connector
+from datastore import DataStore
 
-
-mydb = mysql.connector.connect(
-      host="localhost",
-      user="skincare",
-      passwd="ujrlufiejrblckidihdjclfejnfnuiti",
-      database="skincare"
-)
+my_data_store = DataStore()
+my_data_store.connect()
 
 
 name = input("Good morning! What is your name?\n")
 
 print("Welcome to SkinCare 101 " + name +
       "! \nWe'll help you to track your AM & PM skincare routine everyday. \nThat way you aren't missing a step and your on way to gorgeous skin!")
-
-# def askYesNoQuestion(question):
-#YesNoAnswer = ""
-# while (YesNoAnswer!="YES" and YesNoAnswer!="NO"):
-#YesNoAnswer = input(question).upper()
-# return YesNoAnswer
-
-# answer = askYesNoQuestion("Would you like to review your daily skincare tip? (Yes or No)")
-# if answer == "YES":
-#     print("Sleeping masks are SO much more than a skincare trend. When you sleep, your skin repairs and replenishes as your skin's metabolism improves, enabling your skin cells to reproduce more efficiently. By wearing a hydrating overnight mask, you'll enhance this regeneration process, as it'll act as a protective barrier against dirt or bacteria so that when you wake up your skin is at its best!")
-# elif answer == "NO":
-#     rint("Let's move on to your skincare tracker!")
-# else:
-#     print("Please enter yes or no.")
 
 
 answer = input("Would you like to review your daily skincare tip?\n")
@@ -42,34 +23,14 @@ print("\x1bc")
 print("Now let's start off by tracking your morning routine!\n")
 
 
-# morning routine
-# def morning_routine(morning):
-#     for x in morning:
-#         print(x)
-
-
-# am_routine = ["Cleanser", "Toner", "Vitaminc C", "Serums",
-#               "Acne products", "Eye cream", "Moisturizer", "SPF"]
-
-# morning_routine(am_routine)
-
 # morning routine function
 
 def main():
     choice = "0"
     while choice == "0":
         options = []
-        #     "Cleanser", "Toner", "Vitamin C", "Serums", "Acne Products",
-        #     "Eye Cream", "Moisturizer", "SPF", "Choose 9 to go to another menu."
-        # ]
-        mycursor = mydb.cursor()
-        mycursor.execute("SELECT id, name FROM ProductCategories where is_day_use = true")
-        product_result = mycursor.fetchall()
-        for product in product_result:
-            options.append(product[1])
-
-
-
+        for product in my_data_store.fetchProductCategories():
+            options.append(product.name)
 
 
         menu = InputMenu("Main Choice: \n ", options)
@@ -210,17 +171,6 @@ def exfoliate_menu():
 
 main()
 
-
-# night routine
-
-# print("\nLooks like you're getting ready for some beauty sleep!\nLet's end the day with your night time routine.\n")
-
-# def night_routine(evening):
-#     for z in evening:
-#         print(z)
-# pm_routine = ["Cleanser", "Toner", "Retinol/Serums", "Acne Treatment", "Moisturizer"]
-
-# night_routine(pm_routine)
 
 
 print("\nAwesome! Look at you! You're well on your way to glowing and clear skin for the next day!\n")
