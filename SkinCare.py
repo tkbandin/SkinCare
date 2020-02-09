@@ -1,7 +1,16 @@
 from InputMenu import InputMenu
+import mysql.connector
 
 
-name = raw_input("Good morning! What is your name?\n")
+mydb = mysql.connector.connect(
+      host="localhost",
+      user="skincare",
+      passwd="ujrlufiejrblckidihdjclfejnfnuiti",
+      database="skincare"
+)
+
+
+name = input("Good morning! What is your name?\n")
 
 print("Welcome to SkinCare 101 " + name +
       "! \nWe'll help you to track your AM & PM skincare routine everyday. \nThat way you aren't missing a step and your on way to gorgeous skin!")
@@ -21,7 +30,7 @@ print("Welcome to SkinCare 101 " + name +
 #     print("Please enter yes or no.")
 
 
-answer = raw_input("Would you like to review your daily skincare tip?\n")
+answer = input("Would you like to review your daily skincare tip?\n")
 if answer == "Yes":
     print("Sleeping masks are SO much more than a skincare trend. When you sleep, your skin repairs and replenishes as your skin's metabolism improves, enabling your skin cells to reproduce more efficiently. \nBy wear a hydrating overnight mask, you'll enhance this regeneration process, as it'll act as a protective barrier against dirt or bacteria so that when you wake up your skin is at its best!")
 elif answer == "No":
@@ -34,26 +43,37 @@ print("Now let's start off by tracking your morning routine!\n")
 
 
 # morning routine
-def morning_routine(morning):
-    for x in morning:
-        print(x)
+# def morning_routine(morning):
+#     for x in morning:
+#         print(x)
 
 
-am_routine = ["Cleanser", "Toner", "Vitaminc C", "Serums",
-              "Acne products", "Eye cream", "Moisturizer", "SPF"]
+# am_routine = ["Cleanser", "Toner", "Vitaminc C", "Serums",
+#               "Acne products", "Eye cream", "Moisturizer", "SPF"]
 
-morning_routine(am_routine)
+# morning_routine(am_routine)
 
 # morning routine function
 
 def main():
     choice = "0"
     while choice == "0":
-        options = [
-            "Cleanser", "Toner", "Vitamin C", "Serums", "Acne Products",
-            "Eye Cream", "Moisturizer", "SPF", "Choose 9 to go to another menu."
-        ]
+        options = []
+        #     "Cleanser", "Toner", "Vitamin C", "Serums", "Acne Products",
+        #     "Eye Cream", "Moisturizer", "SPF", "Choose 9 to go to another menu."
+        # ]
+        mycursor = mydb.cursor()
+        mycursor.execute("SELECT id, name FROM ProductCategories where is_day_use = true")
+        product_result = mycursor.fetchall()
+        for product in product_result:
+            options.append(product[1])
+
+
+
+
+
         menu = InputMenu("Main Choice: \n ", options)
+
         choice = menu.build()
 
         if choice == "9":
@@ -106,7 +126,7 @@ def water_intake():
     print("Water is an important part of your skin health. Let's log your water intake for the day!")
     water_goal = 72
 
-    water_intake = raw_input(
+    water_intake = input(
         "Enter the amount of water (in ounces) you have had today.\n")
 
     print("You have had {} ounces of water today.".format(water_intake))
@@ -117,7 +137,7 @@ def water_intake():
     else:
         print("Remember to hit at least 72 ounces of water a day! You got this!")
 
-    raw_input("Press enter to continue.")
+    input("Press enter to continue.")
 
 
 def print_eventing_routine_menu():
@@ -135,7 +155,7 @@ def evening_routine():
     while choice == "0":
         print_eventing_routine_menu()
 
-        choice = raw_input("Please make a choice: ")
+        choice = input("Please make a choice: ")
 
         if choice == "1":
             print("Yay! You've used your Cleanser!")
@@ -168,7 +188,7 @@ def mask_tracker():
         else:
             print("I don't understand your choice. Please select a number 1 through 2.")
 
-    raw_input("Press enter to continue.")
+    input("Press enter to continue.")
 
 def exfoliate_menu():
     print("Let's track how many times you've exfoliated this week. It is recommended to exfoliate twice a week.")
@@ -185,7 +205,7 @@ def exfoliate_menu():
         else:
             print("I don't understand your choice. Please select a number 1 through 2.")
 
-    raw_input("Press enter to continue.")
+    input("Press enter to continue.")
 
 
 main()
@@ -205,11 +225,11 @@ main()
 
 print("\nAwesome! Look at you! You're well on your way to glowing and clear skin for the next day!\n")
 
-end_day = raw_input("Would you like to end your day?\n")
+end_day = input("Would you like to end your day?\n")
 if end_day.lower() == "yes":
     print("See you tomorrow " + name + "! Check back in tomorrow to track your day!")
 elif end_day.lower() == "no":
-    go_back = raw_input("Would you like to edit anything?\n")
+    go_back = input("Would you like to edit anything?\n")
     if go_back.lower() == "yes":
         second_menu()
     elif go_back.lower() == "no":

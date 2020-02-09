@@ -17,7 +17,7 @@ class InputMenu:
             i += 1
             print("{}. {}".format(i, option))
         while True:
-            result = raw_input("Select an option 1-{}: ".format(i))
+            result = input("Select an option 1-{}: ".format(i))
             if int(result) >= 1 and int(result) <= i:
                 return result
             else:
