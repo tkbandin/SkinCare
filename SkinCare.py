@@ -7,8 +7,17 @@ my_data_store.connect()
 
 name = input("Good morning! What is your name?\n")
 
+person_id = 1
+#todo: get user id from login
+today_log = my_data_store.fetchTodayActivityLog(person_id)
+if today_log == None:
+    my_data_store.createActivityLog(person_id)
+    today_log = my_data_store.fetchTodayActivityLog(person_id)
+
 print("Welcome to SkinCare 101 " + name +
       "! \nWe'll help you to track your AM & PM skincare routine everyday. \nThat way you aren't missing a step and your on way to gorgeous skin!")
+
+
 
 
 answer = input("Would you like to review your daily skincare tip?\n")
