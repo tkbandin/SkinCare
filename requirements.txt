@@ -6,7 +6,7 @@ mccabe==0.6.1
 mysql==0.0.2
 mysql-connector-python==8.0.19
 mysqlclient==1.4.6
-protobuf==3.6.1
+protobuf==3.18.3
 pylint==2.4.4
 PyMySQL==0.9.3
 six==1.14.0
